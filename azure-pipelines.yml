@@ -6,10 +6,12 @@ pool:
 
 steps:
 - task: TerraformInstaller@1
+  displayName: terraform install
   inputs:
     terraformVersion: 'latest'
 
 - task: TerraformTask@5
+  displayName: terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -18,3 +20,10 @@ steps:
     backendAzureRmStorageAccountName: 'gauravvimstor'
     backendAzureRmContainerName: 'gauvimcon'
     backendAzureRmKey: 'tfstate'
+- task: TerraformTask@5
+  displayName: terraform apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
+    environmentServiceNameAzureRM: 'vimgausris'
