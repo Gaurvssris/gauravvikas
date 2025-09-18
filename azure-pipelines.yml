@@ -13,12 +13,8 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
     backendServiceArm: 'vimgausris'
     backendAzureRmStorageAccountName: 'gauravvimstor'
     backendAzureRmContainerName: 'gauvimcon'
     backendAzureRmKey: 'tfstate'
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    environmentServiceNameAzureRM: 'vimgausris'
