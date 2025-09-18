@@ -20,15 +20,15 @@ steps:
     backendAzureRmStorageAccountName: 'gauravvimstor'
     backendAzureRmContainerName: 'gauvimcon'
     backendAzureRmKey: 'tfstate'
+# - task: TerraformTask@5
+#   displayName: terraform apply
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'apply'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
+#     environmentServiceNameAzureRM: 'vimgausris'
 - task: TerraformTask@5
-  displayName: terraform apply
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
-    environmentServiceNameAzureRM: 'vimgausris'
-- task: TerraformTask@5
-  displayName: terraform display 
+  displayName: terraform destroy
   inputs:
     provider: 'azurerm'
     command: 'destroy'
