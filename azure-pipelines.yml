@@ -27,3 +27,9 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
     environmentServiceNameAzureRM: 'vimgausris'
+- task: TerraformTask@5
+  displayName: terraform display 
+  inputs:
+    provider: 'azurerm'
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
